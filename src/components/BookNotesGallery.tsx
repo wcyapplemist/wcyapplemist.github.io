@@ -67,13 +67,13 @@ function RatingRow({ label, score }: { label: string; score: number }) {
 const mockBooks: BookEntry[] = [
   {
     id: 1,
-    title: "Book 1",
-    author: "Author 1",
-    coverImage: "https://picsum.photos/seed/book1/480/640",
-    trickScore: 2.5,
-    plotScore: 1.5,
+    title: "Medium Detective Hisui Jozuka",
+    author: "Sako Aizawa",
+    coverImage: "/images/books/book1.jpg",
+    trickScore: 3,
+    plotScore: 3,
     characterScore: 3,
-    notes: "",
+    notes: "Perfect score! Words are redundant here—just go in blind and let the story speak for itself.",
   },
   {
     id: 2,
@@ -132,6 +132,12 @@ export default function BookNotesGallery() {
           <DialogDescription className="sr-only">
             Book notes and ratings
           </DialogDescription>
+
+          {selectedBook && (
+            <span className="absolute top-3 right-10 flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-2xl font-bold text-white">
+              {selectedBook.trickScore + selectedBook.plotScore + selectedBook.characterScore}
+            </span>
+          )}
 
           {selectedBook && (
             <div className="flex flex-col gap-6 sm:flex-row">
